@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./technology-bar.component.css']
 })
 export class TechnologyBarComponent implements OnInit {
-
+private LOGOAngular = require("./assets/logo.png");
   constructor() { }
 
   ngOnInit() {
