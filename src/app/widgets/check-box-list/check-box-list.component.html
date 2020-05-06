@@ -1,0 +1,21 @@
+
+
+  
+
+  
+<div >
+      <div class="custom-control custom-checkbox mb-3">
+      <input type="checkbox" class="custom-control-input" id="customCheckAll"  name="all" [checked]="areAllSelected" 
+    (change)="toggleAllSelection()">
+      <label class="custom-control-label" for="customCheckAll">Select all</label>
+</div>
+<div  *ngFor="let itemrow of Items2D;index as i"  class="row">
+  <div *ngFor="let item of itemrow;index as j" class="col-sm-4">
+    <div class="custom-control custom-checkbox mb-3">
+      <input type="checkbox" class="custom-control-input" id="customCheck{{i*1000+j}}" name="example1"  [(ngModel)]="Items2D[i][j].selected"  [checked]="Items2D[i][j].selected">
+      <label class="custom-control-label" for="customCheck{{i*1000+j}}">{{item.code}} - {{item.name}}</label>
+    </div>
+
+  </div>
+</div>
+</div>

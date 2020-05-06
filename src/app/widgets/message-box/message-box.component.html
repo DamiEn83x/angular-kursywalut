@@ -1,0 +1,6 @@
+
+<BR *ngIf="bShowMessages">
+<BR *ngIf="bShowMessages">
+<div  *ngFor="let item of MessageItems"  class="alert alert-{{item.AlertType}}">  
+    {{item.Message}}
+</div>

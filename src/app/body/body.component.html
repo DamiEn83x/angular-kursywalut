@@ -1,0 +1,33 @@
+
+ 
+<div class="container">
+<div class="card">
+  <div class="card-header bg-primary text-white">Waluty referencyjne</div>
+  <div class="card-body p-4">
+     <app-check-box-list  #walutyListChecBox [items]="WalutyRefAll"  [columns]=3></app-check-box-list> 
+  </div>
+</div>
+
+<BR>
+Data od:<app-my-date-picker #DPOd > </app-my-date-picker>
+Data do:<app-my-date-picker #DPDo ></app-my-date-picker>
+<bR>
+<button my-button (click)="OdswiezWalutyRef()" class="btn btn-primary">Odswież</button>
+<app-message-box #MessageBox></app-message-box>
+<BR>
+<BR>
+<BR *ngIf="displayProgressSpinner">
+  <div class="progress" *ngIf="displayProgressSpinner">
+  <div class="progress-bar"  [style.width]="ProgressBarWidth + '%'"></div>
+</div>
+<app-chart  [InputData]="CurrData" [lineChartLabels]="CurrLabels"  ></app-chart>
+</div>
+<app-technology-bar></app-technology-bar>
+<app-progress-spinner class="example-margin" [color]="spinnercolor" [mode]="spinnermode" [value]="spinnervalue" [backdropEnabled]="true" [positionGloballyCenter]="true"
+ [displayProgressSpinner]="displayProgressSpinner">
+</app-progress-spinner>
+
+
+
+
+
