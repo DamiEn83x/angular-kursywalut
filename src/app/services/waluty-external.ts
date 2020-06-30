@@ -41,18 +41,16 @@ export default class WalutyExternal {
          console.log(url);
          let httpOptions = {
             headers: new HttpHeaders({ 
-              'Access-Control-Allow-Origin':'*',
-              'Authorization':'authkey',
-              'userid':'1'
+              'Access-Control-Allow-Headers':"Origin, X-Requested-With, Content-Type, Accept"
             })
         };
          this.http.post<any>(url,{
                                     "Query":"GetCurrencyPowerChanges",
                                     "DayFrom": DayFrom,
                                     "DayTo": DayTo,
-                                    "tabelaWalut":JSON.stringify(tabelaWalut.map((data)=>{code:data})),
+                                    "tabelaWalut":JSON.stringify(tabelaWalut),
                                     "Curr": cur
-                                 },httpOptions).subscribe((res)=>{    
+                                 }).subscribe((res)=>{    
            
            let tabelaZbiorcza=new Object();
            JSON.parse(res).forEach(obj => {
