@@ -3,7 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 const CURR_SERVICE_API:string= 'https://currencyservice--damiand1.repl.co';
 @Injectable()
-export class WalutyExternal {
+export default class WalutyExternal {
 
 
 
@@ -16,8 +16,9 @@ export class WalutyExternal {
       {
         let url=CURR_SERVICE_API+'/?query=GettabelaWalutA';
         console.log(url);
-         this.http.get(url,{responseType: 'json'}).subscribe((res)=>
-         {    let out= res[0]['rates'].map((rate)=>
+         this.http.get<any>('https://currencyservice--damiand1.repl.co/?query=GettabelaWalutA').subscribe((res)=>
+         { console.log(res);   
+           let out= res[0]['rates'].map((rate)=>
               {
                 return { 
                   code:rate.code,

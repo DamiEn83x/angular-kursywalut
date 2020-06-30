@@ -48,8 +48,8 @@ export class WalutyService {
   }
   GettabelaWalutA()
   {  if(ExternalService){
-      let exService = WalutyExternal(http);
-      return exService.GettabelaWalutA;
+      let exService = new  WalutyExternal(this.http);
+      return exService.GettabelaWalutA();
     }
     else
     {
