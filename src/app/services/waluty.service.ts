@@ -4,7 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { DatePipe } from '@angular/common'
-import moment from 'moment'
+import moment from 'moment';
+import WalutyExternal from './waluty-external';
 const Currencies: Currency[] = [
 { code: 'USD', name: 'dolar amerykański' },
 { code: 'EUR', name: 'euro' },
