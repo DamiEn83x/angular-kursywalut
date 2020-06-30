@@ -16,6 +16,7 @@ const Currencies: Currency[] = [
 
 const NBPAPI:string= 'https://api.nbp.pl/api/';
 const WalutyReferencyjne:string[]=['USD,CHF,GBP,EUR,THB'] 
+const ExternalService=true;
 
 @Injectable({
   providedIn: 'root'
@@ -46,7 +47,12 @@ export class WalutyService {
     );
   }
   GettabelaWalutA()
-  {
+  {  if(ExternalService){
+      let exService = WalutyExternal(http);
+      return exService.GettabelaWalutA;
+    }
+    else
+    {
        return  new Observable(
       (observer) =>  
       {
@@ -66,6 +72,7 @@ export class WalutyService {
          
          });//(url, {responseType: 'json'});
       })
+    }
   }
   async GetCurrencyPowerChangesAsync(callback,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   

@@ -50,7 +50,7 @@ export class WalutyExternal {
            JSON.parse(res).forEach(obj => {
                 tabelaZbiorcza[obj.date]={
                   date:obj.date,
-                  mid:obj.mid;
+                  mid:obj.mid
                 } 
             });
     
