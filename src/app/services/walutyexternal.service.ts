@@ -36,25 +36,31 @@ export class WalutyexternalService {
     console.log('GetCursevalueRange');
     return  new Observable((observer) =>{    
       
-        let url=CURR_SERVICE_API;
-        console.log(url);
+         let url=CURR_SERVICE_API;
+         console.log(url);
          this.http.post<any>(url,{
                                     "Query":"GetCurrencyPowerChanges",
                                     "DayFrom": DayFrom,
                                     "DayTo": DayTo,
                                     "tabelaWalut":JSON.stringify(tabelaWalut.map((data)=>{code:data})),
                                     "Curr": cur
-                                 }).subscribe((res)=>
-         {    let out= res[0]['rates'].map((rate)=>
-              {
-                return { 
-                  code:rate.code,
-                  name:rate.currency
-                }
-              }  
-              );
-             // console.log(out);
-              observer.next(out );
+                                 },{responseType: 'json'}).subscribe((res)=>{    
+           
+           let tabelaZbiorcza=new Object();
+           JSON.parse(res).forEach(obj => {
+                tabelaZbiorcza[obj.date]={
+                  date:obj.date,
+                  mid:obj.mid;
+                } 
+            });
+    
+
+          observer.next( { 
+                          datatype:'dataoutput',
+                          data:tabelaZbiorcza
+                         }
+          )
+  
          
          });//(url, {responseType: 'json'});
 
