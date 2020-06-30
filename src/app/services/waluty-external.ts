@@ -16,7 +16,7 @@ export default class WalutyExternal {
       {
         let url=CURR_SERVICE_API+'/?query=GettabelaWalutA';
         console.log(url);
-         this.http.get<any>('https://currencyservice--damiand1.repl.co/?query=GettabelaWalutA').subscribe((res)=>
+         this.http.get<any>(url).subscribe((res)=>
          { console.log(res);   
            let out= res[0]['rates'].map((rate)=>
               {
@@ -39,13 +39,20 @@ export default class WalutyExternal {
       
          let url=CURR_SERVICE_API;
          console.log(url);
+         let httpOptions = {
+            headers: new HttpHeaders({ 
+              'Access-Control-Allow-Origin':'*',
+              'Authorization':'authkey',
+              'userid':'1'
+            })
+        };
          this.http.post<any>(url,{
                                     "Query":"GetCurrencyPowerChanges",
                                     "DayFrom": DayFrom,
                                     "DayTo": DayTo,
                                     "tabelaWalut":JSON.stringify(tabelaWalut.map((data)=>{code:data})),
                                     "Curr": cur
-                                 },{responseType: 'json'}).subscribe((res)=>{    
+                                 },httpOptions).subscribe((res)=>{    
            
            let tabelaZbiorcza=new Object();
            JSON.parse(res).forEach(obj => {

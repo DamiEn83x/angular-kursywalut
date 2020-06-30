@@ -155,15 +155,23 @@ export class WalutyService {
   GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   
     console.log('GetCursevalueRange');
-    return  new Observable((observer) =>{    
-      
-      console.log('GetCurrencyPowerChanges');
-      this.GetCurrencyPowerChangesAsync((data)=>{
-        observer.next(data);
-      },DayFrom,DayTo,tabelaWalut );
-
+     if(ExternalService){
+      let exService = new  WalutyExternal(this.http);
+      return exService.GetCurrencyPowerChanges(cur,DayFrom,DayTo,tabelaWalut);
     }
-    )
+    else
+    {
+
+      return  new Observable((observer) =>{    
+        
+        console.log('GetCurrencyPowerChanges');
+        this.GetCurrencyPowerChangesAsync((data)=>{
+          observer.next(data);
+        },DayFrom,DayTo,tabelaWalut );
+
+      }
+      )
+    }
   } 
   GetCurseRange(cur:string,DayFrom:Date,DayTo:Date){ 
     return  new Observable(
