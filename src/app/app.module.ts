@@ -27,11 +27,12 @@ import { AppOverlayModule } from './widgets/overlay/overlay.module';
 import { MessageBoxComponent } from './widgets/message-box/message-box.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TechnologyBarComponent } from './technology-bar/technology-bar.component';
+import { WalutyexternalService } from './services/walutyexternal.service';
 
 @NgModule({
   imports:      [ GoogleChartsModule,BrowserModule,MatDatepickerModule, MatFormFieldModule,FormsModule, HttpClientModule,ChartsModule,MatNativeDateModule, MatMomentDateModule,MatFormFieldModule,MatInputModule,BrowserAnimationsModule,  AppOverlayModule,ProgressSpinnerModule,NgbModule],
   declarations: [ AppComponent, HelloComponent, TopBarComponent, BodyComponent, ChartComponent, CheckBoxListComponent, MyDatePickerComponent, MessageBoxComponent, TechnologyBarComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [WalutyService,DatePipe]
+  providers: [WalutyService,DatePipe, WalutyexternalService]
 })
 export class AppModule { }
