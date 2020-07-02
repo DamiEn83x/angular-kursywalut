@@ -53,7 +53,8 @@ export default class WalutyExternal {
                                  }).subscribe((res)=>{    
            
            let tabelaZbiorcza=new Object();
-           JSON.parse(res).forEach(obj => {
+        //   console.log(res);
+           res.forEach(obj => {
                 tabelaZbiorcza[obj.date]={
                   date:obj.date,
                   mid:obj.mid

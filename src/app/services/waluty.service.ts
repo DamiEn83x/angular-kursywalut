@@ -16,7 +16,7 @@ const Currencies: Currency[] = [
 
 const NBPAPI:string= 'https://api.nbp.pl/api/';
 const WalutyReferencyjne:string[]=['USD,CHF,GBP,EUR,THB'] 
-const ExternalService=false;
+const ExternalService=true;
 
 @Injectable({
   providedIn: 'root'
