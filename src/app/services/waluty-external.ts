@@ -43,7 +43,7 @@ export default class WalutyExternal {
             headers: new HttpHeaders({ 
               'Access-Control-Allow-Headers':"Origin, X-Requested-With, Content-Type, Accept"
             })
-        };
+        };/*
          this.http.post<any>(url,{
                                     "Query":"GetCurrencyPowerChanges",
                                     "DayFrom": DayFrom,
@@ -70,7 +70,38 @@ export default class WalutyExternal {
   
          
          });//(url, {responseType: 'json'});
+      */
 
+        const http      = require('http'),
+          https     = require('https');
+
+        let client = http;
+        if (url.toString().indexOf("https") === 0) {
+            client = https;
+        }
+        client.POST(url,{
+                                    "Query":"GetCurrencyPowerChanges",
+                                    "DayFrom": DayFrom,
+                                    "DayTo": DayTo,
+                                    "tabelaWalut":JSON.stringify(tabelaWalut),
+                                    "Curr": cur
+                                 }, (resp) => {
+          let data = '';
+
+          // A chunk of data has been recieved.
+          resp.on('data', (chunk) => {
+                data += chunk;
+          });
+
+          // The whole response has been received. Print out the result.
+          resp.on('end', () => {
+              //  console.log(data);
+                callback(data);
+          });
+
+        }).on("error", (err) => {
+            reject(err);
+        });
     }
     )
   } 
