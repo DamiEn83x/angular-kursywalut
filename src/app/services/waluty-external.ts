@@ -85,6 +85,7 @@ export default class WalutyExternal {
                                     "DayTo": DayTo,
                                     "tabelaWalut":JSON.stringify(tabelaWalut),
                                     "Curr": cur
+                                    "Token":Math.round(Math.random()*10000);
                                  }, (resp) => {
           let data = '';
 
