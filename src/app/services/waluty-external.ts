@@ -50,7 +50,8 @@ export default class WalutyExternal {
                                     "DayFrom": DayFrom,
                                     "DayTo": DayTo,
                                     "tabelaWalut":JSON.stringify(tabelaWalut),
-                                    "Curr": cur
+                                    "Curr": cur,
+                                    "Token":Token
                                  }).subscribe((res)=>{    
            
            let tabelaZbiorcza=new Object();
@@ -72,7 +73,14 @@ export default class WalutyExternal {
          
          });//(url, {responseType: 'json'});
       
-
+         this.http.post<any>(url,{
+                                    "Query":"GetDataProgress",
+                                    "Token":Token
+                                 }).subscribe((res)=>{    
+           
+           console.log(res)
+         
+         });//(url, {responseType: 'json'});
     }
     )
   } 
