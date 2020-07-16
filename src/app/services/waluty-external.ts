@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-const CURR_SERVICE_API:string= 'https://currencyservice--damiand1.repl.co';
+const CURR_SERVICE_API:string= 'https://currencyservice.damiand1.repl.co';
 @Injectable()
 export default class WalutyExternal {
 
@@ -80,7 +80,7 @@ export default class WalutyExternal {
            
            console.log(res)
          
-         });//(url, {responseType: 'json'});
+         }); //(url, {responseType: 'json'});
     }
     )
   } 
