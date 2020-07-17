@@ -76,8 +76,9 @@ export default class WalutyExternal {
   
          
          });//(url, {responseType: 'json'});
+          let http=this.http;
       setTimeout(function(){ 
-        this.http.post<any>(url,{
+         http.post<any>(url,{
                                     "Query":"GetDataProgress",
                                     "Token":Token
                                  },httpOptions).subscribe((res)=>{    
