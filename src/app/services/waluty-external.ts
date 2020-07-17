@@ -35,7 +35,10 @@ export default class WalutyExternal {
              // console.log(out);
               observer.next(out );
          
-         });//(url, {responseType: 'json'});
+         });//(url, {responseType: 'json'})
+
+
+
       })
   }
   GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
@@ -73,15 +76,17 @@ export default class WalutyExternal {
   
          
          });//(url, {responseType: 'json'});
-      
-         this.http.post<any>(url,{
+      setTimeout(function(){ 
+        this.http.post<any>(url,{
                                     "Query":"GetDataProgress",
                                     "Token":Token
-                                 }).subscribe((res)=>{    
+                                 },httpOptions).subscribe((res)=>{    
            
            console.log(res)
          
-         }); //(url, {responseType: 'json'});
+         }); 
+       }, 3000);
+         t//(url, {responseType: 'json'});
     }
     )
   } 
