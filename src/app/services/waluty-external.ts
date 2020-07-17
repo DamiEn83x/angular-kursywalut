@@ -3,9 +3,8 @@ import { Observable, throwError } from 'rxjs';
 import {HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
 const CURR_SERVICE_API:string= 'https://currencyservice.damiand1.repl.co';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  withCredentials: false,
-  observe: 'response' as 'response'
+  headers: new HttpHeaders({}),
+  withCredentials: true
 };
 @Injectable()
 export default class WalutyExternal {
@@ -23,8 +22,8 @@ export default class WalutyExternal {
         console.log(url);
          this.http.get<any>(url,httpOptions).subscribe((res:HttpResponse<any>)=>
          { console.log(res);   
-         console.log('response from server:',res);
-  console.log('response headers',res.headers.keys())
+     //    console.log('response from server:',res);
+  //console.log('response headers',res.headers.keys())
            let out= res[0]['rates'].map((rate)=>
               {
                 return { 
