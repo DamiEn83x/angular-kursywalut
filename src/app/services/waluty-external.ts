@@ -86,7 +86,6 @@ export default class WalutyExternal {
          
          }); 
        }, 3000);
-         t//(url, {responseType: 'json'});
     }
     )
   } 
