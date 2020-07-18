@@ -82,6 +82,7 @@ export class BodyComponent implements OnInit {
  
         }
         else if(res.datatype=='progress') {
+          console.log('body '+res.data);
             this.ProgressBarWidth = Math.round( res.data);
         } 
       }

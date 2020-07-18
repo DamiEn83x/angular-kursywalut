@@ -84,11 +84,11 @@ export default class WalutyExternal {
                                     "Query":"GetDataProgress",
                                     "Token":Token
                                  },httpOptions).subscribe((res)=>{    
-            //console.log('observer.next'+res);
-            observer.next({ 
-                            datatype:'progress',
-                            data:res
-                          });
+           // console.log('observer.next '+JSON.stringify(res));
+            if(res.datatype== 'progress') {
+              observer.next(res);
+            }
+       
             if (!Done){
               CheProgress();
            }
