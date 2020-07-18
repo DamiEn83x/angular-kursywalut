@@ -80,7 +80,7 @@ export default class WalutyExternal {
       setTimeout(function(){ 
          http.post<any>(url,{
                                     "Query":"GetDataProgress",
-                                    "Token":6223
+                                    "Token":Token
                                  },httpOptions).subscribe((res)=>{    
            
            console.log(res)
