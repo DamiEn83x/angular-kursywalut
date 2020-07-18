@@ -46,10 +46,10 @@ export default class WalutyExternal {
     console.log('GetCursevalueRange');
     return  new Observable((observer) =>{    
       
-    let url=CURR_SERVICE_API;
-    let Done=false;
-    let Token = Math.round(Math.random()*10000);
-    this.http.post<any>(url,{
+      let url=CURR_SERVICE_API;
+      let Done=false;
+      let Token = Math.round(Math.random()*10000);
+      this.http.post<any>(url,{
                                     "Query":"GetCurrencyPowerChanges",
                                     "DayFrom": DayFrom,
                                     "DayTo": DayTo,
@@ -75,27 +75,28 @@ export default class WalutyExternal {
           )
   
          
-    });//(url, {responseType: 'json'});
-    let http=this.http;
+      });//(url, {responseType: 'json'});
+      let http=this.http;
 
-    let CheProgress=function(){
-      setTimeout(function(){ 
-         http.post<any>(url,{
+      let CheProgress=function(){
+        setTimeout(function(){ 
+          http.post<any>(url,{
                                     "Query":"GetDataProgress",
                                     "Token":Token
                                  },httpOptions).subscribe((res)=>{    
-           
+            //console.log('observer.next'+res);
             observer.next({ 
                             datatype:'progress',
                             data:res
                           });
-           if (!Done){
-             CheProgress();
+            if (!Done){
+              CheProgress();
            }
          
-         }); 
-       },300);   
-    }  
+          }); 
+        },300);   
+      }
+      CheProgress();
 
     }
     )
