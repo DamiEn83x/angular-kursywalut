@@ -12,6 +12,16 @@
 Data od:<app-my-date-picker #DPOd > </app-my-date-picker>
 Data do:<app-my-date-picker #DPDo ></app-my-date-picker>
 <bR>
+  <select 
+                (change)="onChange($event)"
+  >
+  <option *ngFor="let item of WalutyRefAll"
+                  [ngValue]="item"
+                  [selected]="selectedItem.code == 'PLN'"
+          >{{item.code}}</option>
+  </select>
+<BR>
+<BR>
 <button my-button (click)="OdswiezWalutyRef()" class="btn btn-primary">Odswież</button>
 <app-message-box #MessageBox></app-message-box>
 <BR>
