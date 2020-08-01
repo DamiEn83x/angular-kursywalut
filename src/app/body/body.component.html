@@ -7,19 +7,19 @@
      <app-check-box-list  #walutyListChecBox [items]="WalutyRefAll"  [columns]=3></app-check-box-list> 
   </div>
 </div>
-
+<BR>
+<select [(ngModel)] ="CurrSelected"
+name="valueCheck" (change)="CurrvalueChange($event)"> 
+<option [ngValue]="undefined" disabled>Select Any </option>
+  <option *ngFor="let obj of WalutyRefAll" 
+  [ngValue]="obj.code" [selected]="obj.code == CurrSelected" > {{obj.name}} </option>
+</select>
+<BR>
 <BR>
 Data od:<app-my-date-picker #DPOd > </app-my-date-picker>
 Data do:<app-my-date-picker #DPDo ></app-my-date-picker>
 <bR>
-  <select 
-                (change)="onChange($event)"
-  >
-  <option *ngFor="let item of WalutyRefAll"
-                  [ngValue]="item"
-                  [selected]="selectedItem.code == 'PLN'"
-          >{{item.code}}</option>
-  </select>
+
 <BR>
 <BR>
 <button my-button (click)="OdswiezWalutyRef()" class="btn btn-primary">Odswież</button>
