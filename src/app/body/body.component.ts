@@ -23,7 +23,7 @@ export class BodyComponent implements OnInit {
   @ViewChild('DPOd') DPOd: MyDatePickerComponent;
   @ViewChild('DPDo') DPDo: MyDatePickerComponent;
   @ViewChild('MessageBox') MessageBox:MessageBoxComponent;
-
+  CurrencySelect: any;
   
   DataDo:Date= new Date();
   DataOd:Date =new Date();
@@ -131,8 +131,9 @@ export class BodyComponent implements OnInit {
 
   }
   CurrvalueChange(event){
-  console.log("selected value",event.target.value);
-  this.CurrSelected = event.target.value;
+  console.log("selected value",this.CurrencySelect);
+  this.CurrSelected = this.CurrencySelect;
+
 }
 
 }

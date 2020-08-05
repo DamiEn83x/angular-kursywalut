@@ -154,7 +154,7 @@ export class WalutyService {
   }
   GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   
-    console.log('GetCursevalueRange');
+    console.log('GetCursevalueRange for '+cur);
      if(ExternalService){
       let exService = new  WalutyExternal(this.http);
       return exService.GetCurrencyPowerChanges(cur,DayFrom,DayTo,tabelaWalut);

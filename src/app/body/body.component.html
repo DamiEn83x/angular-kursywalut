@@ -8,7 +8,7 @@
   </div>
 </div>
 <BR>
-<select [(ngModel)] ="CurrSelected"
+<select  [(ngModel)] ="CurrencySelect"
 name="valueCheck" (change)="CurrvalueChange($event)"> 
 <option [ngValue]="undefined" disabled>Select Any </option>
   <option *ngFor="let obj of WalutyRefAll" 
