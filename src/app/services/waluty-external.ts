@@ -63,7 +63,7 @@ export default class WalutyExternal {
            res.forEach(obj => {
                 tabelaZbiorcza[obj.date]={
                   date:obj.date,
-                  mid:obj.mid
+                  Wskaznik:obj.Wskaznik
                 } 
             });
     

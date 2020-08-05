@@ -72,7 +72,7 @@ export class BodyComponent implements OnInit {
 
           for (var key in res.data) {   
             
-            array_values.push({y:res.data[key].mid,label:key});
+            array_values.push({y:res.data[key].Wskaznik,label:key});
 
           }
           this.CurrData = array_values.map(a =>  [a.label,a.y] );//res.map(a => a.y );
