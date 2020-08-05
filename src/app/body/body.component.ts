@@ -16,7 +16,7 @@ export class BodyComponent implements OnInit {
    CurrData;
    CurrLabels;
    WalutyRef;
-   WalutyRefAll;
+   WalutyRefAll; 
    CurrSelected;
    WS:WalutyService;
    @ViewChild('walutyListChecBox') walutyListChecBox: any;
@@ -37,7 +37,7 @@ export class BodyComponent implements OnInit {
   // Display progress spinner for 3 secs on click of button
 
   constructor(WS:WalutyService) { 
-    this.WS= WS;0
+    this.WS= WS;
     this.CurrSelected = 'PLN';
     this.DataOd.setTime(this.DataDo.getTime()-180*(1000*60*60*24));
   }
