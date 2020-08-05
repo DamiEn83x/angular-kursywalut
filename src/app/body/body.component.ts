@@ -122,6 +122,7 @@ export class BodyComponent implements OnInit {
         this.WalutyRef=ret.map((waluta)=>{return waluta.code});
        // console.log('WalutyRefAll');
         this.WalutyRefAll=ret;
+        this.WalutyRefAll.push({code:'PLN',name:'Polski złoty'})
        // console.log(this.WalutyRefAll);
         this.UstawKontrolkiNaBiezaceParametry();
         this.WyswietlZmianyKursow();
