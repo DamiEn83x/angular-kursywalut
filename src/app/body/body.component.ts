@@ -141,7 +141,7 @@ export class BodyComponent implements OnInit {
 
   }
   CurrvalueChange(event){
-  console.log("selected value",this.CurrencySelect);
+  console.log("selected event.target.dataset.table",event.target.dataset.table);
   this.CurrSelected = this.CurrencySelect;
   this.CurrTableSelected =event.target.dataset.table; 
 
