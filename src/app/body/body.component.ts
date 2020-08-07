@@ -19,6 +19,7 @@ export class BodyComponent implements OnInit {
    WalutyRefAll; 
    WalutyRefAllAB; 
    CurrSelected;
+   CurrTableSelected;
    WS:WalutyService;
    @ViewChild('walutyListChecBox') walutyListChecBox: any;
   @ViewChild('DPOd') DPOd: MyDatePickerComponent;
@@ -40,6 +41,7 @@ export class BodyComponent implements OnInit {
   constructor(WS:WalutyService) { 
     this.WS= WS;
     this.CurrSelected = 'PLN';
+    this.CurrTableSelected='A';
     this.DataOd.setTime(this.DataDo.getTime()-180*(1000*60*60*24));
   }
 
@@ -65,7 +67,7 @@ export class BodyComponent implements OnInit {
       {
         this.MessageBox.AddErrorMessage('Brak pozycji walut referencyjnych');
       }    
-      this.WS.GetCurrencyPowerChanges(this.CurrSelected,this.DataOd,this.DataDo,this.WalutyRef).subscribe((res)=>{ 
+      this.WS.GetCurrencyPowerChanges(this.CurrSelected,this.CurrTableSelected,this.DataOd,this.DataDo,this.WalutyRef).subscribe((res)=>{ 
         if(res.datatype=='dataoutput') {
           this.test2= res.data;
           var array_keys = new Array();
@@ -141,6 +143,7 @@ export class BodyComponent implements OnInit {
   CurrvalueChange(event){
   console.log("selected value",this.CurrencySelect);
   this.CurrSelected = this.CurrencySelect;
+  this.CurrTableSelected =event.target.dataset.table; 
 
 }
 
