@@ -159,12 +159,12 @@ export class WalutyService {
                   data:tabelaZbiorcza
                 });
   }
-  GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
+  GetCurrencyPowerChanges(cur:string,table:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   
     console.log('GetCursevalueRange for '+cur);
      if(ExternalService){
       let exService = new  WalutyExternal(this.http);
-      return exService.GetCurrencyPowerChanges(cur,DayFrom,DayTo,tabelaWalut);
+      return exService.GetCurrencyPowerChanges(cur,tableDayFrom,DayTo,tabelaWalut);
     }
     else
     {

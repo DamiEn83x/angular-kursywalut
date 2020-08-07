@@ -27,6 +27,7 @@ export default class WalutyExternal {
            let out= res[0]['rates'].map((rate)=>
               {
                 return { 
+                  table:'A',
                   code:rate.code,
                   name:rate.currency
                 }
@@ -55,6 +56,7 @@ export default class WalutyExternal {
            let outA= res[0]['rates'].map((rate)=>
               {
                 return { 
+                  table:'A',
                   code:rate.code,
                   name:rate.currency
                 }
@@ -62,6 +64,7 @@ export default class WalutyExternal {
             let outB= res[1]['rates'].map((rate)=>
             {
                 return { 
+                  table:'B',
                   code:rate.code,
                   name:rate.currency
                 }
@@ -75,7 +78,7 @@ export default class WalutyExternal {
 
       })
   }
-  GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
+  GetCurrencyPowerChanges(cur:string,table:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   
     console.log('GetCursevalueRange');
     return  new Observable((observer) =>{    
