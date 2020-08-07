@@ -92,7 +92,8 @@ export default class WalutyExternal {
                                     "DayTo": DayTo,
                                     "tabelaWalut":JSON.stringify(tabelaWalut),
                                     "Curr": cur,
-                                    "Token":Token
+                                    "Token":Token,
+                                    "Table":table
                                  },httpOptions).subscribe((res)=>{    
            
            let tabelaZbiorcza=new Object();
