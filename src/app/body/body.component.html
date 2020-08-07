@@ -11,7 +11,7 @@
 <select class="form-control"  [(ngModel)] ="CurrencySelect"
 name="valueCheck" (change)="CurrvalueChange($event)"> 
 <option [ngValue]="undefined" disabled>Select Any </option>
-  <option *ngFor="let obj of WalutyRefAll" 
+  <option *ngFor="let obj of WalutyRefAllAB" 
   [ngValue]="obj.code" [selected]="obj.code == CurrSelected" > {{obj.name}} </option>
 </select>
 <BR>
