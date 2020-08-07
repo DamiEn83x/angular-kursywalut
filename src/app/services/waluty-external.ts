@@ -41,6 +41,40 @@ export default class WalutyExternal {
 
       })
   }
+  GettabelaWalutAB()
+  {
+       return  new Observable(
+      (observer) =>  
+      {
+        let url=CURR_SERVICE_API+'/?query=GettabelaWalutAB';
+        console.log(url);
+         this.http.get<any>(url,httpOptions).subscribe((res:HttpResponse<any>)=>
+         { console.log(res);   
+     //    console.log('response from server:',res);
+  //console.log('response headers',res.headers.keys())
+           let outA= res[0]['rates'].map((rate)=>
+              {
+                return { 
+                  code:rate.code,
+                  name:rate.currency
+                }
+              });
+            let outB= res[1]['rates'].map((rate)=>
+            {
+                return { 
+                  code:rate.code,
+                  name:rate.currency
+                }
+            });
+             // console.log(out);
+            observer.next([].concat(outA, outB));
+         
+         });//(url, {responseType: 'json'})
+
+
+
+      })
+  }
   GetCurrencyPowerChanges(cur:string,DayFrom:Date,DayTo:Date,tabelaWalut:string[])
   {   
     console.log('GetCursevalueRange');

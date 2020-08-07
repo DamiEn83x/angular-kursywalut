@@ -46,6 +46,13 @@ export class WalutyService {
       }
     );
   }
+  GettabelaWalutAB()
+  {
+    if(ExternalService){
+      let exService = new  WalutyExternal(this.http);
+      return exService.GettabelaWalutAB();
+    }
+  }
   GettabelaWalutA()
   {  if(ExternalService){
       let exService = new  WalutyExternal(this.http);
