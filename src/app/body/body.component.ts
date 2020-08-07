@@ -122,9 +122,10 @@ export class BodyComponent implements OnInit {
      this.WS.GettabelaWalutAB().subscribe((ret)=>
      {    this.showProgressSpinner();
         this.WalutyRefAllAB=ret;
+       // console.log(this.WalutyRefAllAB);
         this.WalutyRefAllAB.push({code:'PLN',name:'Polski złoty'})
       this.WS.GettabelaWalutA().subscribe((ret)=>
-      {    this.showProgressSpinner();
+      {  //  this.showProgressSpinner();
         this.WalutyRef=ret.map((waluta)=>{return waluta.code});
        // console.log('WalutyRefAll');
         this.WalutyRefAll=ret;
@@ -141,9 +142,10 @@ export class BodyComponent implements OnInit {
 
   }
   CurrvalueChange(event){
-  console.log("selected event.target.dataset.table",event.target.dataset.table);
-  this.CurrSelected = this.CurrencySelect;
-  this.CurrTableSelected =event.target.dataset.table; 
+    let selectedIndex:number = event.target["selectedIndex"];
+
+    this.CurrSelected = this.CurrencySelect;
+    this.CurrTableSelected =event.target.options[selectedIndex].getAttribute("data-c_table"); 
 
 }
 

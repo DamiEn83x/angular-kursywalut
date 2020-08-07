@@ -12,7 +12,7 @@
 name="valueCheck" (change)="CurrvalueChange($event)"> 
 <option [ngValue]="undefined" disabled>Select Any </option>
   <option *ngFor="let obj of WalutyRefAllAB" 
-  [ngValue]="obj.code" [selected]="obj.code == CurrSelected"  [attr.data-table]="'ZZ'" > {{obj.code+' - '+obj.name}} </option>
+  [ngValue]="obj.code" [selected]="obj.code == CurrSelected"  [attr.data-c_table]="obj.table" > {{obj.code+' - '+obj.name}} </option>
 </select>
 <BR>
 <BR>
