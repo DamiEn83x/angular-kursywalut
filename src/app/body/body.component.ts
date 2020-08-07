@@ -17,6 +17,7 @@ export class BodyComponent implements OnInit {
    CurrLabels;
    WalutyRef;
    WalutyRefAll; 
+   WalutyRefAllAB; 
    CurrSelected;
    WS:WalutyService;
    @ViewChild('walutyListChecBox') walutyListChecBox: any;
@@ -116,9 +117,12 @@ export class BodyComponent implements OnInit {
  
     }
   ngOnInit() {
-  
-     this.WS.GettabelaWalutA().subscribe((ret)=>
+     this.WS.GettabelaWalutAB().subscribe((ret)=>
      {    this.showProgressSpinner();
+        this.WalutyRefAllAB=ret;
+        this.WalutyRefAllAB.push({code:'PLN',name:'Polski złoty'})
+      this.WS.GettabelaWalutA().subscribe((ret)=>
+      {    this.showProgressSpinner();
         this.WalutyRef=ret.map((waluta)=>{return waluta.code});
        // console.log('WalutyRefAll');
         this.WalutyRefAll=ret;
@@ -127,7 +131,10 @@ export class BodyComponent implements OnInit {
         this.UstawKontrolkiNaBiezaceParametry();
         this.WyswietlZmianyKursow();
   
+      })
      })
+
+
 
 
   }
